@@ -64,10 +64,10 @@ function CreateGridBlocks (gridLength, squareSize)
         etch_a_sketch.appendChild(square);
     }
 
-    gridBlocks = document.querySelectorAll('.grid');
-    gridBlocks.forEach(element => {
-        element.addEventListener('mouseover', () => {
-            element.style.backgroundColor = 'blue';
-        })
+    etch_a_sketch.addEventListener('mouseover', (event) => {
+        if (event.target.classList.contains('grid')) { 
+            let randomColor = Math.floor(Math.random()*16777215).toString(16);
+            event.target.style.backgroundColor = '#' + randomColor;
+        }
     })
 }
